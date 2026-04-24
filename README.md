@@ -9,12 +9,9 @@ Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** — buildi
 ## 🔴 SpendLens — My Main Project
 
 An AI-powered procurement intelligence dashboard built with Python and Panel.
+Giving insights about company spend
+Providing dashboards, KPIs tailored from years of experiance 
 
-- Uploads any spend dataset (CSV, Excel, SAP/Coupa exports)
-- Auto-maps messy column names using Claude AI (Vendor/Lieferant/Supplier → same thing)
-- Bottleneck analysis, supplier concentration risk, contract expiry tracking
-- CFO-ready Excel export with EBITDA impact reporting
-- Vertical battery KPI diagrams for procurement health metrics
 
 **Stack:** Python · Panel · Plotly · Pandas · Claude API · Pydantic
 
