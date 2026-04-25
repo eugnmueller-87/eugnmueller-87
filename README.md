@@ -9,7 +9,7 @@ Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** — buildi
 ## 🔴 SpendLens — My Main Project
 
 An AI-powered procurement intelligence dashboard built with Python and Panel.
-Giving insights about company spend
+Giving insights about company spend, giving market and cost driving information for RFP preparation,
 Providing dashboards, KPIs tailored from years of experiance 
 
 
