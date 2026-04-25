@@ -5,6 +5,24 @@
 
 ---
 
+## The Problem
+
+Enterprise procurement teams are sitting on top of some of the most valuable data in a company — and they can't read it.
+
+Not because the data doesn't exist. It does. It lives in SAP exports, Coupa reports, accounting spreadsheets, and Excel files that get emailed around at month end. The problem is what happens next: someone spends three days cleaning it, another week building pivot tables, and by the time a report lands on the CFO's desk it's already stale.
+
+Meanwhile:
+- Shadow IT keeps growing. Nobody knows how many SaaS tools are being expensed without IT approval.
+- Freelancers are being paid under personal names with no PO, no contract, no visibility.
+- A vendor justifies a 22% price increase with "market conditions" — and procurement has no data to push back.
+- A contract expires quietly. The auto-renewal kicks in. Another year at last year's price.
+
+The tools that exist — SAP Analytics, Coupa Accelerate, Ivalua — were built for a different era. Rigid data models. Manual configuration. Static rules. They work if your data is already clean and your processes are already mature. Most companies aren't there.
+
+**SpendLens is built for the real world.**
+
+---
+
 ## What SpendLens Does
 
 SpendLens takes raw accounting and procurement data — messy, inconsistent, multi-source — and turns it into a living procurement intelligence platform.
@@ -72,6 +90,8 @@ Every transaction carries a set of derived flags that answer the questions a CPO
 | Spend Pattern | Recurring / Blanket PO / One-off / Irregular |
 | Catalogue | Purchased through approved catalogue vs off-catalogue |
 
+### Real Estate Intelligence
+Office rent is tracked by location — city, country, entity. A CFO can see exactly which offices are paying what, compare lease costs across locations, and flag contracts approaching renewal.
 
 ### Multi-Source Matching
 Upload an accounting export and a procurement PO list simultaneously. SpendLens identifies the source type, fuzzy-matches transactions to purchase orders, and surfaces the gap — what was paid that was never approved, and what was approved that was never invoiced.
