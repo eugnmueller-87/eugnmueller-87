@@ -55,7 +55,7 @@ An AI-powered procurement intelligence dashboard built with Python and Panel.
 
 ## 📫 Connect
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Eugen%20M%C3%BCller-0077B5?style=flat&logo=linkedin&logoColor=white)](linkedin.com/in/eugen-mueller
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Eugen%20Mueller-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eugen-mueller)
 
 ---
 
