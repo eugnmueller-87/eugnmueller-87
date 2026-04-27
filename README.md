@@ -48,8 +48,8 @@ An AI-powered procurement intelligence dashboard built with Python and Panel.
 | Company | Role |
 |---------|------|
 | TeamViewer | Lead Procurement & Category Management |
-| Scout24 | Procurement Manager |
-| Delivery Hero / FoodPanda | Procurement |
+| Scout24 |Senior Procurement Manager |
+| Delivery Hero / FoodPanda | Category Manager |
 
 ---
 
