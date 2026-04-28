@@ -8,15 +8,17 @@ Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** — buildi
 
 ## 🔴 SpendLens — Main Project
 
-An AI-powered procurement intelligence dashboard built with Python and Panel.
+An AI-powered procurement intelligence platform built with Python and Panel.
 
-- Uploads any spend dataset (CSV, Excel, SAP/Coupa exports)
-- Auto-maps messy column names using Claude AI — Vendor/Lieferant/Supplier all recognized as the same
-- Bottleneck analysis, supplier concentration risk, contract expiry tracking
+- Uploads any spend dataset (CSV, Excel, SAP/Coupa exports) — messy columns auto-mapped via Claude AI (Vendor/Lieferant/Supplier all recognized)
+- Five-stage AI pipeline: column mapping → data cleanup → vendor classification → compliance flagging → supplier intelligence
+- **Icarus** — embedded market intelligence agent: monitors 9 RSS feeds + Grok real-time signals, scores articles for procurement relevance, answers natural language questions, generates RFP & negotiation briefs on demand
+- **Compliance Scorecard** — EcoVadis-style supplier cards with ABC tier classification (Pareto spend + criticality), contract status icons, compliance score with trend arrows, and inline editing that persists back to the classification cache
+- ICARUS AI floating assistant accessible from any tab — ask about your spend without leaving the dashboard
 - CFO-ready Excel export with EBITDA impact reporting
-- Vertical battery KPI diagrams for procurement health metrics
+- Persistent SQLite knowledge base — every upload appends to the timeline, vendor classifications accumulate
 
-**Stack:** `Python` `Panel` `Plotly` `Pandas` `Claude API` `Pydantic`
+**Stack:** `Python` `Panel` `Plotly` `Pandas` `Claude API` `xAI Grok API` `SQLite` `Pydantic`
 
 ---
 
@@ -29,8 +31,8 @@ An AI-powered procurement intelligence dashboard built with Python and Panel.
 
 **AI & Data (in progress)**
 - Python · Pandas · Plotly · Panel
-- OpenAI API · Claude API · Whisper STT
-- Pydantic · JSON validation · REST APIs
+- Anthropic Claude API · xAI Grok API · OpenAI API · Whisper STT
+- SQLite · Pydantic · JSON validation · REST APIs
 - Jupyter Notebooks · Git
 
 ---
@@ -48,7 +50,7 @@ An AI-powered procurement intelligence dashboard built with Python and Panel.
 | Company | Role |
 |---------|------|
 | TeamViewer | Lead Procurement & Category Management |
-| Scout24 |Senior Procurement Manager |
+| Scout24 | Senior Procurement Manager |
 | Delivery Hero / FoodPanda | Category Manager |
 
 ---
