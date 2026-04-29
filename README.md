@@ -22,6 +22,25 @@ An AI-powered procurement intelligence platform built with Python and Panel.
 
 ---
 
+## 🤖 ICARUS — Personal AI Assistant (Live)
+
+A self-hosted personal assistant that lives in Telegram. Powered by Claude. Knows your calendar, inbox, and tasks. Understands voice and photos. Always on.
+
+- **Multi-model routing** — Haiku for simple commands, Sonnet 4.6 for complex reasoning. Smart and cheap.
+- **Voice messages** — send a voice note, ICARUS transcribes and acts on it via OpenAI Whisper
+- **Image analysis** — send a photo of an invoice, contract, or whiteboard — Claude reads and extracts what matters
+- **Calendar read & write** — check this week, create events from natural language ("add Kita closed 15th June at 8")
+- **Gmail** — filtered inbox digest, time-based queries ("any emails in the last 10 minutes?")
+- **GitHub Issues** — read open tasks, create new ones from Telegram
+- **Conversation memory** — remembers context within a session
+- Deployed on Railway free tier — costs ~€4/month in API calls
+
+**Stack:** `Python` `python-telegram-bot` `Claude API` `OpenAI Whisper` `Google Calendar API` `Gmail API` `GitHub API` `Railway`
+
+[→ View on GitHub](https://github.com/eugnmueller-87/Personal-Assistent)
+
+---
+
 ## 🛠 Skills
 
 **Procurement & Category Management**
@@ -32,6 +51,8 @@ An AI-powered procurement intelligence platform built with Python and Panel.
 **AI & Data (in progress)**
 - Python · Pandas · Plotly · Panel
 - Anthropic Claude API · xAI Grok API · OpenAI API · Whisper STT
+- Multi-model routing · Tool-use agents · Multimodal AI
+- Telegram bot development · Railway deployment
 - SQLite · Pydantic · JSON validation · REST APIs
 - Jupyter Notebooks · Git
 
