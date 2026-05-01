@@ -46,7 +46,7 @@ ICARUS can diagnose and fix its own runtime errors without manual intervention.
 **How it works:**
 
 1. Any unhandled exception in a message handler is caught automatically
-2. uto_debug.py extracts the traceback and identifies the failing source file
+2. Extracts the traceback and identifies the failing source file
 3. Claude Sonnet reads the broken file + full traceback and generates a corrected version
 4. The fix is committed directly to the Railway-connected GitHub repo via the GitHub API
 5. Railway detects the push and redeploys automatically (~90s)
