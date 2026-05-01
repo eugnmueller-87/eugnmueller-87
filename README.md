@@ -26,11 +26,11 @@ A self-hosted personal assistant that lives in Telegram. Powered by Claude AI. A
 | Web search | Tavily API — live news, prices, company info |
 | Google Maps | Places, directions, opening hours, ratings |
 | GitHub Issues | Read open tasks, create new ones |
-| Shopping list | Conversational, Redis-backed, deduplicates |
-| Expense tracker | Text or receipt photo, monthly summary by store |
+| Shopping list | Conversational, emoji categories, visual formatting, deduplicates |
+| Expense tracker | Text or receipt photo, visual summary with store-type detection |
 | LinkedIn posting | AI-drafted posts with Telegram approval flow |
 | Persistent memory | Upstash Redis — survives restarts |
-| Multi-model routing | Haiku for simple, Sonnet for complex (~€4/month) |
+| Multi-model routing | Haiku for simple, Sonnet for complex (~€8-9/month) |
 
 **Stack:** `Python` `python-telegram-bot` `Claude Sonnet 4.6` `Claude Haiku 4.5` `OpenAI Whisper` `Google Calendar API` `Gmail API` `GitHub API` `Tavily API` `Google Maps API` `LinkedIn API` `Upstash Redis` `Railway`
 
@@ -100,7 +100,11 @@ Financial Analysis, Analytical Skills, Software as a Service (SaaS), Technology 
 - Multi-agent architecture · Tool-use agents · Multimodal AI
 - Telegram bot development · Railway deployment
 - Upstash Redis · SQLite · REST APIs · OAuth 2.0
-- Git · GitHub Actions · Jupyter Notebooks
+- Git · GitHub Actions · CI/CD pipelines · pytest
+- Security hardening: fail-closed auth · prompt injection defence · audit logging · auto-fix denylist
+- Self-healing systems: exception capture · AI-generated fix · PR review gate · auto-redeploy
+- LinkedIn Posts API · Little Text Format (LTF) · organisation @mentions
+- PWA architecture · progressive web app concepts
 
 ---
 
