@@ -55,6 +55,9 @@ ICARUS can diagnose and fix its own runtime errors without manual intervention.
 7. If the same file fails twice, it escalates: *"auto-fix exhausted — manual fix needed"*
 
 **Stack:** Claude Sonnet 4.6 GitHub Contents API Upstash Redis Railway auto-deploy
+
+[→ View on GitHub](https://github.com/eugnmueller-87/Personal-Assistent)
+
 ---
 
 ## 🔴 SpendLens — Procurement Intelligence Platform
