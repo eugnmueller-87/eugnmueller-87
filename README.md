@@ -6,7 +6,7 @@ Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** (Week 2 of
 
 ---
 
-## 🤖 ICARUS — Personal AI Assistant (Live)
+## 🤖 Personal AI Assistant (Live)
 
 A self-hosted personal assistant that lives in Telegram. Powered by Claude AI. Always on.
 
