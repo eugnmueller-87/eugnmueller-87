@@ -71,9 +71,9 @@ Connects to ICARUS for Telegram-based approval flows.
 ## 🛠 Skills
 
 **Procurement & Category Management**
-- Strategic sourcing, supplier negotiation, contract management
-- Spend analysis, bottleneck mapping, supplier risk assessment
-- SAP · Coupa · Ariba · SpendHQ · Sastrify
+Procurement, Category Management, Contract Negotiation, Purchase Management, 
+Team Leadership, Mentoring, Change Management, Strategic Planning, 
+Financial Analysis, Analytical Skills, Software as a Service (SaaS), Technology Trends
 
 **AI & Engineering**
 - Python · Pandas · Plotly · Panel
