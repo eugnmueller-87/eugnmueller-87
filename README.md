@@ -36,6 +36,25 @@ A self-hosted personal assistant that lives in Telegram. Powered by Claude AI. A
 
 [→ View on GitHub](https://github.com/eugnmueller-87/Personal-Assistent) | [→ Project Kanban](https://github.com/users/eugnmueller-87/projects/6)
 
+
+---
+
+## 🔧 ICARUS Self-Healing System
+
+ICARUS can diagnose and fix its own runtime errors without manual intervention.
+
+**How it works:**
+
+1. Any unhandled exception in a message handler is caught automatically
+2. uto_debug.py extracts the traceback and identifies the failing source file
+3. Claude Sonnet reads the broken file + full traceback and generates a corrected version
+4. The fix is committed directly to the Railway-connected GitHub repo via the GitHub API
+5. Railway detects the push and redeploys automatically (~90s)
+6. On next startup, ICARUS checks a Redis flag and sends a Telegram report:
+   *"Back online after auto-fix. Fixed: bot/claude_router.py: KeyError 'summary'"*
+7. If the same file fails twice, it escalates: *"auto-fix exhausted — manual fix needed"*
+
+**Stack:** Claude Sonnet 4.6 GitHub Contents API Upstash Redis Railway auto-deploy
 ---
 
 ## 🔴 SpendLens — Procurement Intelligence Platform
