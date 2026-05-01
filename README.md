@@ -2,42 +2,69 @@
 
 **Procurement Professional transitioning into AI** | Berlin 🇩🇪
 
-Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** — building AI-powered tools that solve real enterprise problems.
-
----
-
-## 🔴 SpendLens — Main Project
-
-An AI-powered procurement intelligence platform built with Python and Panel.
-
-- Uploads any spend dataset (CSV, Excel, SAP/Coupa exports) — messy columns auto-mapped via Claude AI (Vendor/Lieferant/Supplier all recognized)
-- Five-stage AI pipeline: column mapping → data cleanup → vendor classification → compliance flagging → supplier intelligence
-- **Icarus** — embedded market intelligence agent: monitors 9 RSS feeds + Grok real-time signals, scores articles for procurement relevance, answers natural language questions, generates RFP & negotiation briefs on demand
-- **Compliance Scorecard** — EcoVadis-style supplier cards with ABC tier classification (Pareto spend + criticality), contract status icons, compliance score with trend arrows, and inline editing that persists back to the classification cache
-- ICARUS AI floating assistant accessible from any tab — ask about your spend without leaving the dashboard
-- CFO-ready Excel export with EBITDA impact reporting
-- Persistent SQLite knowledge base — every upload appends to the timeline, vendor classifications accumulate
-
-**Stack:** `Python` `Panel` `Plotly` `Pandas` `Claude API` `xAI Grok API` `SQLite` `Pydantic`
+Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** (Week 2 of 9) — building AI-powered tools that solve real operational problems.
 
 ---
 
 ## 🤖 ICARUS — Personal AI Assistant (Live)
 
-A self-hosted personal assistant that lives in Telegram. Powered by Claude. Knows your calendar, inbox, and tasks. Understands voice and photos. Always on.
+A self-hosted personal assistant that lives in Telegram. Powered by Claude AI. Always on.
 
-- **Multi-model routing** — Haiku for simple commands, Sonnet 4.6 for complex reasoning. Smart and cheap.
-- **Voice messages** — send a voice note, ICARUS transcribes and acts on it via OpenAI Whisper
-- **Image analysis** — send a photo of an invoice, contract, or whiteboard — Claude reads and extracts what matters
-- **Calendar read & write** — check this week, create events from natural language ("add Kita closed 15th June at 8")
-- **Gmail** — filtered inbox digest, time-based queries ("any emails in the last 10 minutes?")
-- **GitHub Issues** — read open tasks, create new ones from Telegram
-- **Conversation memory** — remembers context within a session
-- Deployed on Railway free tier — costs ~€4/month in API calls
+| Capability | Detail |
+|---|---|
+| Natural language — text | Claude Sonnet 4.6 tool-use agent |
+| Natural language — voice | OpenAI Whisper transcription |
+| Image / document analysis | Claude multimodal — invoices, contracts, whiteboards |
+| Google Calendar read | This week's events |
+| Google Calendar write | Create, find, delete, recurring events |
+| Gmail read | Important-only, last 3 days, time-based queries |
+| Gmail search | Find any email by person, subject, folder, or date |
+| Gmail full body | Read the actual message content |
+| Email reply | Draft + Send / Edit / Cancel approval flow |
+| Proactive email alerts | Polls every 15 min, AI urgency filter |
+| Morning briefing | 06:00 Berlin — calendar + emails + tasks |
+| Web search | Tavily API — live news, prices, company info |
+| Google Maps | Places, directions, opening hours, ratings |
+| GitHub Issues | Read open tasks, create new ones |
+| Shopping list | Conversational, Redis-backed, deduplicates |
+| Expense tracker | Text or receipt photo, monthly summary by store |
+| LinkedIn posting | AI-drafted posts with Telegram approval flow |
+| Persistent memory | Upstash Redis — survives restarts |
+| Multi-model routing | Haiku for simple, Sonnet for complex (~€4/month) |
 
-**Stack:** `Python` `python-telegram-bot` `Claude API` `OpenAI Whisper` `Google Calendar API` `Gmail API` `GitHub API` `Railway`
+**Stack:** `Python` `python-telegram-bot` `Claude Sonnet 4.6` `Claude Haiku 4.5` `OpenAI Whisper` `Google Calendar API` `Gmail API` `GitHub API` `Tavily API` `Google Maps API` `LinkedIn API` `Upstash Redis` `Railway`
 
-[→ View on GitHub](https://github.com/eugnmueller-87/Personal-Assistent)
+[→ View on GitHub](https://github.com/eugnmueller-87/Personal-Assistent) | [→ Project Kanban](https://github.com/users/eugnmueller-87/projects/6)
+
+---
+
+## 🔴 SpendLens — Procurement Intelligence Platform
+
+An AI-powered procurement analytics platform built with Python and Panel.
+
+- Uploads any spend dataset (CSV, Excel, SAP/Coupa exports) — messy columns auto-mapped via Claude AI
+- Five-stage AI pipeline: column mapping → data cleanup → vendor classification → compliance flagging → supplier intelligence
+- **Compliance Scorecard** — EcoVadis-style supplier cards with ABC tier classification, contract status, compliance scores
+- **ICARUS** — embedded market intelligence agent monitoring RSS feeds, scoring articles, generating RFP & negotiation briefs
+- CFO-ready Excel export with EBITDA impact reporting
+- Persistent SQLite knowledge base — every upload appends to the timeline
+
+**Stack:** `Python` `Panel` `Plotly` `Pandas` `Claude API` `SQLite` `Pydantic`
+
+---
+
+## 🧠 AI Content Intelligence System (In Progress)
+
+A 4-agent event-driven pipeline for automated content and trend monitoring.
+
+- **Crawler** — scans web domains daily, scores findings by novelty and relevance
+- **Trends Analyst** — quality filter adding domain context (procurement, finance, fintech)
+- **LinkedIn Writer** — transforms insights into structured posts, always requires Telegram approval
+- **GitHub Documenter** — auto-updates repo documentation on tags, merges, milestones
+
+Connects to ICARUS for Telegram-based approval flows.
+
+[→ View on GitHub](https://github.com/eugnmueller-87/AI-Content-Intelligence-System)
 
 ---
 
@@ -48,21 +75,13 @@ A self-hosted personal assistant that lives in Telegram. Powered by Claude. Know
 - Spend analysis, bottleneck mapping, supplier risk assessment
 - SAP · Coupa · Ariba · SpendHQ · Sastrify
 
-**AI & Data (in progress)**
+**AI & Engineering**
 - Python · Pandas · Plotly · Panel
-- Anthropic Claude API · xAI Grok API · OpenAI API · Whisper STT
-- Multi-model routing · Tool-use agents · Multimodal AI
+- Anthropic Claude API · OpenAI API · Whisper STT
+- Multi-agent architecture · Tool-use agents · Multimodal AI
 - Telegram bot development · Railway deployment
-- SQLite · Pydantic · JSON validation · REST APIs
-- Jupyter Notebooks · Git
-
----
-
-## 📚 Currently Learning
-
-- AI Agent development — LangChain, LangGraph, n8n
-- RAG pipelines and vector databases
-- EU AI Act & GDPR compliance for enterprise AI
+- Upstash Redis · SQLite · REST APIs · OAuth 2.0
+- Git · GitHub Actions · Jupyter Notebooks
 
 ---
 
@@ -82,4 +101,4 @@ A self-hosted personal assistant that lives in Telegram. Powered by Claude. Know
 
 ---
 
-*"Combining 10+ years of procurement expertise with AI engineering to build tools that actually solve enterprise problems."*
+*"Combining 10+ years of procurement expertise with AI engineering to build tools that actually solve real problems."*
