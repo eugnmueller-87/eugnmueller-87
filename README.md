@@ -2,7 +2,7 @@
 
 **Procurement Professional transitioning into AI** | Berlin 🇩🇪
 
-Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** (Week 3 of 9) — building AI-powered tools that solve real operational problems.
+Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** (Week 4 of 9) — building AI-powered tools that solve real operational problems.
 
 ---
 
