@@ -96,20 +96,62 @@ Converts PDFs, URLs, YouTube links, or plain text into polished two-host audio e
 
 ---
 
-## 🧠 AI Content Intelligence System (In Planning)
+## 🔍 Hermes — Market Intelligence Sub-Agent (Live)
 
-A 4-agent event-driven pipeline for automated content and trend monitoring.
+A dedicated market intelligence service deployed on Railway, crawling ~590 tech/procurement suppliers across 17 categories. Hermes runs autonomously and answers Icarus AI's questions via a secured REST API.
 
-- **Crawler** — scans web domains daily, scores findings by novelty and relevance
-- **Trends Analyst** — quality filter adding domain context (procurement, finance, fintech)
-- **LinkedIn Writer** — transforms insights into structured posts, always requires Telegram approval
-- **GitHub Documenter** — auto-updates repo documentation on tags, merges, milestones
-- Shared memory layer across agents (Redis/Supabase)
-- Smart triggering — fires on noteworthy content, not fixed schedules
+**Architecture:** Icarus is master — Hermes is a pure data service. It never pushes alerts or touches personal data; it answers queries.
 
-Connects to Icarus AI for Telegram-based approval flows.
+You (Telegram)
+│
+▼
+ICARUS AI ──── HTTP (x-api-key) ──▶ HERMES AGENT
+│
+RSS / EDGAR / Tavily /
+Jobs / Transcripts crawlers
+│
+Claude Haiku (11 signal types)
+│
+┌────────────────┴─────────────────┐
+▼                                   ▼
+Upstash Redis                      Upstash Vector
+(items, profiles,                  (semantic RAG search,
+clusters, TTLs)                    1024-dim BGE model)
 
-[→ View on GitHub](https://github.com/eugnmueller-87/AI-Content-Intelligence-System)
+
+
+**Crawlers (5 active, scheduled):**
+
+| Crawler | Source | Schedule |
+|---|---|---|
+| RSS | ~590 company feeds + 18 industry feeds | Every 6 hours |
+| EDGAR | SEC 8-K / 10-Q / 10-K filings (Tier 1+2) | Daily 07:30 |
+| Tavily news | Deep web search, capped ~700/month | Monday 09:00 |
+| Jobs | Lever / Greenhouse / Workday — hiring as forward indicator | Wednesday 09:00 |
+| Earnings transcripts | SEC 8-K full text | Thursday 08:00 |
+
+**Intelligence layer:**
+- 11 signal types × HIGH/MEDIUM/LOW urgency — classified by Claude Haiku
+- Company knowledge profiles in Redis — permanent, accumulate signal history + risk flags
+- Macro theme clustering — Claude Sonnet groups cross-company signals into synthesis paragraphs (6h cache)
+- Trend memory — weekly cluster snapshots with NEW / CONTINUING / RESOLVED delta
+- Profile enrichment — auto-extracts key products, pricing notes, risk summaries at 10-signal threshold
+- SpendLens connector — `HermesClient` with fuzzy vendor matching feeds signals directly into SpendLens
+
+**Icarus has 8 tool calls mapped to Hermes:** `hermes_query` · `hermes_profile` · `hermes_briefing` · `hermes_search` · `hermes_trends` · `hermes_crawl` · `hermes_chart` · `hermes_greet`
+
+**Stack:** `Python 3.13` `FastAPI` `APScheduler` `Claude Haiku 4.5` `Claude Sonnet 4.6` `Upstash Redis` `Upstash Vector (BGE 1024-dim)` `Tavily API` `EDGAR API` `QuickChart.io` `Railway` `GitHub Actions`
+
+[→ View on GitHub](https://github.com/eugnmueller-87/hermes-agent)
+Also update the Hermes sub-agent row in the Icarus capabilities table — change:
+
+Monitors ~590 tech suppliers, generates market briefings and trend analysis
+
+to:
+
+Dedicated sub-agent — 5 crawlers, 590 suppliers, 11 signal types, RAG search, Claude Haiku classification
+
+And remove the old AI Content Intelligence System section entirely, since that repo is spec-only and Hermes is the real thing.
 
 ---
 
