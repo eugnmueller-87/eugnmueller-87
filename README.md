@@ -2,13 +2,13 @@
 
 **Procurement Professional transitioning into AI** | Berlin 🇩🇪
 
-Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** (Week 5 of 9) — building AI-powered tools that solve real operational problems.
+Currently attending the **AI Integration Bootcamp @ Ironhack Berlin** (Week 4 of 9) — building AI-powered tools that solve real operational problems.
 
 ---
 
 ## 🤖 Icarus AI — Personal Operating System (Live)
 
-A JARVIS-style personal AI OS accessible via Telegram bot and a Progressive Web App at [icarusai.de](https://icarusai.de). Powered by Claude AI. Always on.
+A JARVIS-style personal AI OS accessible via Telegram bot and a Progressive Web App 
 
 | Capability | Detail |
 |---|---|
