@@ -1,4 +1,4 @@
-# Hi, I'm Eugen 👋
+﻿# Hi, I'm Eugen 👋
 
 **Procurement Leader → AI Engineer** | Berlin 🇩🇪
 
@@ -33,6 +33,7 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 5 o
 |---|---|
 | 🤖 **Icarus AI — Personal Operating System** — JARVIS-style AI OS via Telegram + PWA. 20+ capabilities: voice input (Whisper), multimodal document analysis (invoices, contracts, whiteboards), Gmail/Calendar/GitHub integration, proactive email alerts, expense tracking, LinkedIn posting, live web search, Google Maps. Multi-model routing (Haiku for simple, Sonnet for complex). Persistent memory via Upstash Redis. ~€8–9/month. | [Link](https://github.com/eugnmueller-87/Personal-Assistent) |
 | 🔧 **ICARUS Self-Healing System** — Icarus diagnoses and repairs its own runtime errors without human intervention. Catches exceptions → Claude reads broken file + traceback → generates corrected version → commits via GitHub API → Railway redeploys (~90s) → Telegram confirms fix. Escalates to manual review if the same file fails twice. | [Link](https://github.com/eugnmueller-87/Personal-Assistent) |
+| ⚡ **ZEUS — Autonomous Trading Orchestrator** — 6-agent trading system for German markets (IBKR). ZEUS is the supreme orchestrator — all agents report to it. Pipeline: Icarus (RSS signal watcher) → Hades (OFAC/ESG compliance filter) → Trend Analyzer (VIX, market regime, sector momentum via yfinance) → Pattern Learner (SQLite hit-rate history → Kelly-inspired position sizing) → Execution (IBKR bracket orders: entry + stop-loss + take-profit) → Monitor (drawdown kill switch + Telegram alerts). n8n triggers pipeline every 15 min. Paper trading mode by default. Zero babysitting once deployed. | [Link](https://github.com/eugnmueller-87/Zeus) |
 
 ---
 
@@ -113,3 +114,4 @@ Procurement Strategy · Category Management · Contract Negotiation · Supplier 
 ---
 
 *10+ years of procurement expertise. Now building the AI systems that will transform how procurement teams operate.*
+
