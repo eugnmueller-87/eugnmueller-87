@@ -37,6 +37,17 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 5 o
 
 ---
 
+## Client Work
+
+*Production AI systems built for paying clients — real problems, live infrastructure.*
+
+| Project/Description | GitHub |
+|---|---|
+| 📊 **Client Dashboard** — Internal agency dashboard for monitoring all live client AI systems in one place. Real-time status, deployment health, and pipeline metrics across projects. | [Link](https://github.com/eugnmueller-87/CLIENT-DASHBOARD) |
+| 🩺 **AI Triage System** — Autonomous customer support triage for a Croatian gut health brand (Metabelly). Incoming emails classified by AI agent (category, priority, language), auto-replies drafted for FAQ and medical deflections, Calendly booking links appended, results routed to Slack. Built on FastAPI + PostgreSQL + Gmail API. GDPR-compliant: content encrypted at rest, audit log append-only, no PII in summaries. | [Link](https://github.com/eugnmueller-87/Metabelly) |
+
+---
+
 ## Full-Stack AI Applications
 
 *End-to-end products combining AI reasoning, workflow automation, and real-world integrations.*
