@@ -2,7 +2,7 @@
 
 **Procurement Leader → AI Engineer** | Berlin 🇩🇪
 
-10+ years leading procurement and category management at **TeamViewer**, **Scout24**, and **Delivery Hero** — now engineering the AI systems that will transform the function I know inside out.
+10+ years leading procurement and category management at **TeamViewer**, **Scout24**, **Foodpanda** and **Delivery Hero** — now engineering the AI systems that will transform the function I know inside out.
 
 I don't just advise on AI transformation. I build the tools myself.
 
