@@ -45,6 +45,7 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 |---|---|
 | 📊 **Client Dashboard** — Internal agency dashboard for monitoring all live client AI systems in one place. Real-time status, deployment health, and pipeline metrics across projects. | [Link](https://github.com/eugnmueller-87/CLIENT-DASHBOARD) |
 | 🩺 **AI Triage System** — Autonomous customer support triage for a Croatian gut health brand (Metabelly). Incoming emails classified by AI agent (category, priority, language), auto-replies drafted for FAQ and medical deflections, Calendly booking links appended, results routed to Slack. Built on FastAPI + PostgreSQL + Gmail API. GDPR-compliant: content encrypted at rest, audit log append-only, no PII in summaries. | [Link](https://github.com/eugnmueller-87/Metabelly) |
+| 📧 **Noosphr Workspace — Email Router** — AI-powered email triage for Noosphr's company inbox. Incoming emails classified by Claude AI (Haiku) and routed to `#business`, `#support`, or `#spam` Slack channels with one-click reply buttons. Runs as a systemd service on a Hetzner VPS. Hostinger IMAP + Slack Incoming Webhooks + Anthropic API. | [Link](https://github.com/eugnmueller-87/Noosphr-Workspace) |
 
 ---
 
