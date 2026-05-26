@@ -33,7 +33,7 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 |---|---|
 | 🤖 **Icarus AI — Personal Operating System** — JARVIS-style AI OS via Telegram + PWA. 20+ capabilities: voice input (Whisper), multimodal document analysis (invoices, contracts, whiteboards), Gmail/Calendar/GitHub integration, proactive email alerts, expense tracking, LinkedIn posting, live web search, Google Maps. Multi-model routing (Haiku for simple, Sonnet for complex). Persistent memory via Upstash Redis. ~€8–9/month. | [Link](https://github.com/eugnmueller-87/Personal-Assistent) |
 | 🔧 **ICARUS Self-Healing System** — Icarus diagnoses and repairs its own runtime errors without human intervention. Catches exceptions → Claude reads broken file + traceback → generates corrected version → commits via GitHub API → Railway redeploys (~90s) → Telegram confirms fix. Escalates to manual review if the same file fails twice. | [Link](https://github.com/eugnmueller-87/Personal-Assistent) |
-| ⚡ **Pantheon OS — Autonomous Trading Orchestrator** — 8-agent trading system for German markets (IBKR). Eight Greek gods, one mission. ZEUS orchestrates: **Icarus** (Hermes signal watcher, 590+ suppliers) → **Hades** (OFAC/EU sanctions/ESG) → **Artemis** (VIX + macro regime) → **Pythia** (Kelly-inspired sizing) → **Ares** (IBKR bracket orders: entry + 3% SL + 6% TP) → **Argus** (drawdown kill switch + Telegram). **Apollo** runs daily: arXiv paper ingestion, earnings enrichment, ticker map, self-improvement loop. ChromaDB KB + Claude Haiku LLM reasoning before every trade. Paper trading by default. | [Link](https://github.com/eugnmueller-87/Pantheon) |
+| ⚡ **Pantheon OS — Autonomous Trading Orchestrator** — 8-agent trading system. **Live on Hetzner. Paper trading. Self-scheduling every 15 minutes.** ZEUS orchestrates: **Icarus** (Hermes signal watcher, 590+ suppliers) → **Hades** (OFAC/EU sanctions/ESG compliance firewall) → **Artemis** (VIX + macro regime) → **Pythia** (Kelly-inspired sizing from historical win rates) → **Zeus** (Claude Sonnet 4.6 LLM reasoning + ChromaDB KB + ticker history) → **Ares** (IBKR bracket orders: entry + 3% SL + 6% TP) → **Argus** (drawdown kill switch + portfolio monitor). **Apollo** runs daily: arXiv ingestion, earnings enrichment, self-improvement loop. Agent seniority system gates live trading — agents level up from TRAINEE → DIRECTOR as they build verified win rates. Grafana dashboard tracks equity, drawdown, agent health, and Anthropic token spend. Kafka event bus. Supabase persistence. | [Link](https://github.com/eugnmueller-87/Pantheon) |
 
 ---
 
@@ -105,6 +105,7 @@ Procurement Strategy · Category Management · Contract Negotiation · Supplier 
 `Claude API` `OpenAI API` `Whisper` `ElevenLabs` `n8n` `Gradio` `Panel` `Plotly` `Pandas`
 `Supabase` `SQLite` `REST APIs` `OAuth 2.0` `Telegram Bot API` `Railway` `Vercel`
 `GitHub Actions` `CI/CD` `Multi-agent orchestration` `Self-healing systems`
+`Kafka` `Docker` `Hetzner` `nginx` `IB Gateway` `ib_insync` `Grafana` `Interactive Brokers`
 
 ---
 
