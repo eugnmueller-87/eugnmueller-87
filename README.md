@@ -23,6 +23,7 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 | 🏗 **Triage Agent** | Autonomous agent replacing manual PR triage. 5-tier value routing, supplier NDA/DPA/MSA compliance check via RAG, RFQ/RFP generation, multi-supplier outreach, evaluation matrix, award recommendation. 6 importable n8n workflows. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/LAB4) |
 | 🔍 **Hermes** | Market intelligence sub-agent on Railway. Crawls 590+ suppliers across 17 categories via 5 crawlers (RSS, EDGAR, Tavily, Jobs, Earnings). Signals classified by Claude Haiku with delta tracking. Semantic RAG via Upstash Vector. Powers SpendLens Icarus AI. | [Link](https://github.com/eugnmueller-87/hermes-agent) |
 | ☠️ **Hades** | Supplier due diligence agent. POST a company name, get a full risk report in under 2 minutes. 6 parallel LangGraph nodes: OFAC/UN sanctions, NorthData registry, LkSG/CSDDD signals, ESG, news sentiment, Hermes intel. Risk score 1–10 + Approve/Block recommendation. Integrated into SpendLens. | [Link](https://github.com/eugnmueller-87/hades) |
+| 📊 **Marketing Channel Statistical Analysis** | Full statistical pipeline for $500K marketing budget allocation across 7 channels. 90-day dataset, Welch t-tests + Fisher's exact test, Bonferroni + Benjamini-Hochberg FDR correction, empirical power analysis (1,000 simulations), bootstrap confidence intervals, Cohen's d effect sizes. All 14 CPA pairs and 21 conversion rate pairs significant post-FDR. Executive memo with data-backed reallocation recommendation. Ironhack Week 6 Lab. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/Week%206/LAB%209/lab_statistical_analysis_eugen_mueller) |
 | 🧪 **Rating System for AI Responses** | LLM evaluation framework for procurement compliance Q&A. Custom 20-example dataset (risk, compliance, data-privacy, contractual, financial). LLM-as-judge evaluators for correctness + completeness. A/B model comparison: gpt-4o-mini vs gpt-4o. Built with LangSmith, openevals, and OpenAI. Ironhack Week 6 Lab. | [Link](https://github.com/eugnmueller-87/Rating-System-for-AI-Responses) |
 
 ---
@@ -117,6 +118,7 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 ![Autonomous Agent Design](https://img.shields.io/badge/Autonomous%20Agent%20Design-0A66C2?style=flat)
 ![n8n Workflow Automation](https://img.shields.io/badge/n8n%20Workflow%20Automation-0A66C2?style=flat)
 ![ERP Integration](https://img.shields.io/badge/ERP%20Integration%20%28SAP%2FCoupa%29-0A66C2?style=flat)
+![Statistical Analysis](https://img.shields.io/badge/Statistical%20Analysis-0A66C2?style=flat)
 
 **Engineering**
 
@@ -137,6 +139,8 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 ![Panel](https://img.shields.io/badge/Panel-4B8BBE?style=flat)
 ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat&logo=plotly&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=flat&logo=scipy&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
 ![REST APIs](https://img.shields.io/badge/REST%20APIs-FF6B35?style=flat)
