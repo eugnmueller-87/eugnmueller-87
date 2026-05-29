@@ -8,7 +8,40 @@ I don't just advise on AI transformation. I build the tools myself.
 
 Every project here started with a real problem I personally encountered running procurement teams: manual triage, supplier compliance gaps, fragmented spend data, slow RFP cycles, and market intelligence that arrives too late. These are my answers — designed by someone who has lived them and built by someone who can now ship them.
 
-Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 of 9).
+Completed **AI Integration Bootcamp @ Ironhack Berlin**. Now in production.
+
+---
+
+## 🏆 Flagship: TrueSpend
+
+*An AI-native procurement operating system for mid-size companies spending €5M–€200M/year.*
+
+> *"Three things need you this week. Everything else, the agent closed."*
+
+TrueSpend replaces manual approval chains, spreadsheet budget tracking, license chaos, and vendor negotiation theatre with a reasoning agent that acts on everything it's confident about and surfaces only the decisions that genuinely need a human.
+
+**One board. Everything that needs you. The agent is silent on everything else.**
+
+| Layer | Stack |
+|---|---|
+| Orchestration | n8n self-hosted |
+| AI Reasoning | Claude Sonnet 4.6 — 5-signal disposition model |
+| Database | PostgreSQL on Railway — 28 tables, 8 views, RPCs |
+| REST API | PostgREST — JWT-secured, all workflows use it |
+| Operations Board | React + Vite + Tailwind → nginx → Railway |
+| Observability | Grafana — Budgets, Contracts, Expiring, PO Status |
+| Escalations | Jira (PROC project, ≥€100k only) |
+
+**What's running:**
+- 7 autonomous n8n workflows (intake, supplier replies, contract watching, reorder, hyperscaler monitoring, supplier onboarding, invoice processing)
+- Operations Board with 6 screens: Operations, Orders, Suppliers, Catalogues, My Requests, New Request
+- 4-agent parallel supplier onboarding: Lawyer · GDPR · InfoSec · LkSG/Ethics
+- Full P2I lifecycle: Request → Budget check → PO → Delivery → 3-way invoice match → ERP queue
+- Purchase Orders board with Jira integration for ≥€100k escalations
+- Pre-negotiated catalogues per supplier (Apple, Dell, Lenovo, Microsoft, Salesforce, AWS, Google Cloud)
+- Grafana dashboards: Budgets · Contracts · Expiring · PO Status · Vendor Intel
+
+[**→ TrueSpend Repository**](https://github.com/eugnmueller-87/TrueSpend)
 
 ---
 
@@ -18,7 +51,7 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 
 | Project | Description | GitHub |
 |---|---|---|
-| ⚡ **TrueSpend** | Agentic procurement OS. Not a tool — a replacement. Agent reasons across contracts, consumption, supplier health, request patterns, and policy state to close transactions autonomously. Jira intake + n8n orchestration + Claude reasoning + Supabase + Grafana. Contract renewal engine, hyperscaler monitoring, supplier reply handling, automatic reordering. 5 managers running 10 branches. Three things need you this week. Everything else, the agent closed. | [Link](https://github.com/eugnmueller-87/TrueSpend) |
+| 🧠 **TrueSpend** | AI-native procurement OS. n8n + Claude Sonnet 4.6 + PostgreSQL + React. 7 autonomous workflows, 28-table schema, 6-screen Operations Board (Operations · Orders · Suppliers · Catalogues · My Requests · New Request), full P2I lifecycle, 4-agent compliance onboarding, Grafana observability, Jira for ≥€100k escalations. Deployed on Railway. | [Link](https://github.com/eugnmueller-87/TrueSpend) |
 | 🔴 **SpendLens** | Full-stack AI procurement intelligence platform. React 18 SPA + FastAPI. 5-stage AI pipeline: column mapping → cleanup → vendor classification → compliance flagging → supplier intelligence. 7 screens: Dashboard, Deep Dive, Compliance Scorecard, CLM, Icarus AI, Supplier DD, Category Strategy. Deployed live on Railway. | [Link](https://github.com/eugnmueller-87/PROCUREMENT) |
 | 🏗 **Triage Agent** | Autonomous agent replacing manual PR triage. 5-tier value routing, supplier NDA/DPA/MSA compliance check via RAG, RFQ/RFP generation, multi-supplier outreach, evaluation matrix, award recommendation. 6 importable n8n workflows. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/LAB4) |
 | 🔍 **Hermes** | Market intelligence sub-agent on Railway. Crawls 590+ suppliers across 17 categories via 5 crawlers (RSS, EDGAR, Tavily, Jobs, Earnings). Signals classified by Claude Haiku with delta tracking. Semantic RAG via Upstash Vector. Powers SpendLens Icarus AI. | [Link](https://github.com/eugnmueller-87/hermes-agent) |
@@ -93,6 +126,7 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 
 | Project/Description | GitHub |
 |---|---|
+| 🧠 **TrueSpend Workflows (7)** — intake_receiver, supplier_reply_handler, contract_watcher, reorder_trigger, hyperscaler_monitor, supplier_onboarding, invoice_processor. All production-grade: 120s timeouts, 3× retry, full trace logging per signal. | [Link](https://github.com/eugnmueller-87/TrueSpend/tree/main/workflows) |
 | 🏗 **Procurement Triage Workflows** — 6 fully importable n8n workflows for the autonomous procurement agent: PR ingestion, tier routing & SMTP notifications, ERP integration (budget check + PO creation), RFQ/RFP supplier outreach with daily reminders, quote collection, approval response handling. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/LAB4/n8n_workflows) |
 | 📰 **arXiv Research Summarizer** — n8n + Claude + Notion pipeline. POST an arXiv URL → extract paper ID → fetch metadata via arXiv API → Claude summarises abstract → stores structured record in Notion research database. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/EXTRA%202) |
 | ⚙️ **Error Handling & Scheduled Workflows** — n8n patterns for production resilience: HTTP retry logic (3×, 5s delay), error output branching, daily scheduled runs with idempotency guard via date-keyed IF node. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/EXTRA%203) |
@@ -123,6 +157,12 @@ Currently completing the **AI Integration Bootcamp @ Ironhack Berlin** (Week 6 o
 **Engineering**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![PostgREST](https://img.shields.io/badge/PostgREST-4169E1?style=flat)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=langchain&logoColor=white)
