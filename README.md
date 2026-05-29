@@ -12,39 +12,6 @@ Completed **AI Integration Bootcamp @ Ironhack Berlin**. Now in production.
 
 ---
 
-## 🏆 Flagship: TrueSpend
-
-*An AI-native procurement operating system for mid-size companies spending €5M–€200M/year.*
-
-> *"Three things need you this week. Everything else, the agent closed."*
-
-TrueSpend replaces manual approval chains, spreadsheet budget tracking, license chaos, and vendor negotiation theatre with a reasoning agent that acts on everything it's confident about and surfaces only the decisions that genuinely need a human.
-
-**One board. Everything that needs you. The agent is silent on everything else.**
-
-| Layer | Stack |
-|---|---|
-| Orchestration | n8n self-hosted |
-| AI Reasoning | Claude Sonnet 4.6 — 5-signal disposition model |
-| Database | PostgreSQL on Railway — 28 tables, 8 views, RPCs |
-| REST API | PostgREST — JWT-secured, all workflows use it |
-| Operations Board | React + Vite + Tailwind → nginx → Railway |
-| Observability | Grafana — Budgets, Contracts, Expiring, PO Status |
-| Escalations | Jira (PROC project, ≥€100k only) |
-
-**What's running:**
-- 7 autonomous n8n workflows (intake, supplier replies, contract watching, reorder, hyperscaler monitoring, supplier onboarding, invoice processing)
-- Operations Board with 6 screens: Operations, Orders, Suppliers, Catalogues, My Requests, New Request
-- 4-agent parallel supplier onboarding: Lawyer · GDPR · InfoSec · LkSG/Ethics
-- Full P2I lifecycle: Request → Budget check → PO → Delivery → 3-way invoice match → ERP queue
-- Purchase Orders board with Jira integration for ≥€100k escalations
-- Pre-negotiated catalogues per supplier (Apple, Dell, Lenovo, Microsoft, Salesforce, AWS, Google Cloud)
-- Grafana dashboards: Budgets · Contracts · Expiring · PO Status · Vendor Intel
-
-[**→ TrueSpend Repository**](https://github.com/eugnmueller-87/TrueSpend)
-
----
-
 ## Procurement AI Transformation
 
 *AI-powered tools built from 10+ years of hands-on procurement experience — targeting the exact pain points category managers, CPOs, and procurement ops teams face daily.*
