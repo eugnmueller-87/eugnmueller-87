@@ -18,7 +18,7 @@ Completed **AI Integration Bootcamp @ Ironhack Berlin**. Now in production.
 
 | Project | Description | GitHub |
 |---|---|---|
-| 🧠 **TrueSpend** | AI-native procurement OS. n8n + Claude Sonnet 4.6 + PostgreSQL + React. 7 autonomous workflows, 28-table schema, 6-screen Operations Board (Operations · Orders · Suppliers · Catalogues · My Requests · New Request), full P2I lifecycle, 4-agent compliance onboarding, Grafana observability, Jira for ≥€100k escalations. Deployed on Railway. | [Link](https://github.com/eugnmueller-87/TrueSpend) |
+| 🧠 **TrueSpend** | AI-native procurement OS. n8n + Claude Sonnet 4.6 + PostgreSQL + React. 12 autonomous workflows, 28-table schema, Operations Board with full P2I lifecycle, 4-agent compliance onboarding, DocuSign e-signature (JWT Grant, embedded signing), Grafana observability, Jira for ≥€100k escalations. 41 live mock tickets. Deployed on Railway. | [Link](https://github.com/eugnmueller-87/TrueSpend) |
 | 🔴 **SpendLens** | Full-stack AI procurement intelligence platform. React 18 SPA + FastAPI. 5-stage AI pipeline: column mapping → cleanup → vendor classification → compliance flagging → supplier intelligence. 7 screens: Dashboard, Deep Dive, Compliance Scorecard, CLM, Icarus AI, Supplier DD, Category Strategy. Deployed live on Railway. | [Link](https://github.com/eugnmueller-87/PROCUREMENT) |
 | 🏗 **Triage Agent** | Autonomous agent replacing manual PR triage. 5-tier value routing, supplier NDA/DPA/MSA compliance check via RAG, RFQ/RFP generation, multi-supplier outreach, evaluation matrix, award recommendation. 6 importable n8n workflows. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/LAB4) |
 | 🔍 **Hermes** | Market intelligence sub-agent on Railway. Crawls 590+ suppliers across 17 categories via 5 crawlers (RSS, EDGAR, Tavily, Jobs, Earnings). Signals classified by Claude Haiku with delta tracking. Semantic RAG via Upstash Vector. Powers SpendLens Icarus AI. | [Link](https://github.com/eugnmueller-87/hermes-agent) |
@@ -93,7 +93,7 @@ Completed **AI Integration Bootcamp @ Ironhack Berlin**. Now in production.
 
 | Project/Description | GitHub |
 |---|---|
-| 🧠 **TrueSpend Workflows (7)** — intake_receiver, supplier_reply_handler, contract_watcher, reorder_trigger, hyperscaler_monitor, supplier_onboarding, invoice_processor. All production-grade: 120s timeouts, 3× retry, full trace logging per signal. | [Link](https://github.com/eugnmueller-87/TrueSpend/tree/main/workflows) |
+| 🧠 **TrueSpend Workflows (12)** — intake_receiver, docusign_sign, supplier_reply_handler, contract_watcher, reorder_trigger, hyperscaler_monitor, supplier_onboarding, invoice_processor, delivery_confirmation, asset_depreciation, llm_consumption, docusign_received. All production-grade: 120s timeouts, 3× retry, full trace logging per signal. DocuSign JWT Grant with embedded signing. | [Link](https://github.com/eugnmueller-87/TrueSpend/tree/main/workflows) |
 | 🏗 **Procurement Triage Workflows** — 6 fully importable n8n workflows for the autonomous procurement agent: PR ingestion, tier routing & SMTP notifications, ERP integration (budget check + PO creation), RFQ/RFP supplier outreach with daily reminders, quote collection, approval response handling. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/LAB4/n8n_workflows) |
 | 📰 **arXiv Research Summarizer** — n8n + Claude + Notion pipeline. POST an arXiv URL → extract paper ID → fetch metadata via arXiv API → Claude summarises abstract → stores structured record in Notion research database. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/EXTRA%202) |
 | ⚙️ **Error Handling & Scheduled Workflows** — n8n patterns for production resilience: HTTP retry logic (3×, 5s delay), error output branching, daily scheduled runs with idempotency guard via date-keyed IF node. | [Link](https://github.com/eugnmueller-87/IRONHACK/tree/main/WEEK%204/EXTRA%203) |
@@ -152,6 +152,7 @@ Completed **AI Integration Bootcamp @ Ironhack Berlin**. Now in production.
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
 ![REST APIs](https://img.shields.io/badge/REST%20APIs-FF6B35?style=flat)
 ![OAuth 2.0](https://img.shields.io/badge/OAuth%202.0-4A90D9?style=flat)
+![DocuSign](https://img.shields.io/badge/DocuSign%20eSignature-FFB600?style=flat&logo=docusign&logoColor=black)
 ![Telegram Bot API](https://img.shields.io/badge/Telegram%20Bot%20API-26A5E4?style=flat&logo=telegram&logoColor=white)
 ![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=flat&logo=railway&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
