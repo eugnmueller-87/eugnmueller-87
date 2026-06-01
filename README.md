@@ -59,6 +59,7 @@ Completed **AI Integration Bootcamp @ Ironhack Berlin**. Now in production.
 |---|---|
 | 🏥 **Kita Connect** — Full-stack daycare management platform for German Kitas. ~€0/month, GDPR-compliant, Frankfurt-hosted. Three portals: parents, educators (AI-assisted learning stories via Claude Haiku), management (multi-channel comms, automated registrations). | [GitHub](https://github.com/eugnmueller-87/kita-connect) |
 | 🎙 **PodcastIQ** — Any PDF, URL, YouTube link, or plain text → polished two-host MP3 in under 60 seconds. Dual LLM (Claude Sonnet / GPT-4o), ElevenLabs voices, 3-layer humanizer, emotional prosody, parallel async TTS. ~$0.03–0.05 per episode. | [GitHub](https://github.com/eugnmueller-87/PODCAST-STUDIO) |
+| 🎬 **Light-weight Transcriber** — Paste a YouTube URL or any text and ask Claude questions about it. Fetches captions via YouTube's transcript API — no audio download. FastAPI backend, runs locally. | [GitHub](https://github.com/eugnmueller-87/Light-weight-Transcriber) |
 
 ---
 
