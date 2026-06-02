@@ -41,6 +41,14 @@ Completed **AI Integration Bootcamp @ Ironhack Berlin**. Now in production.
 
 ---
 
+## Infrastructure & Security
+
+*Self-hosted reliability and security tooling that keeps the production stack healthy — observe-only guardians, firewall hardening, and automated secret hygiene.*
+
+| Project/Description | Repo |
+|---|---|
+| 🛡 **Lookout — Docker Host Guardian** — Observe-only watchdog for the production Docker hosts. Samples every container's CPU + memory each minute; on a sustained runaway it applies a reversible CPU cap (the only automatic action) and alerts via Telegram, leaving pause/restart/kill as owner-gated commands. Plus: firewall hardening (ufw + DOCKER-USER conntrack rules that actually block Docker-published ports), short-lived auto-rotated service tokens (no long-lived credentials on disk), a repo secret-scanner that watches all public repos for exposed keys, and a push-based health feed so the ops assistant can answer "are the servers running well?" in natural language. | [Private repo](https://github.com/eugnmueller-87/Lookout) |
+
 ## Client Work
 
 *Production AI systems built for paying clients.*
