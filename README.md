@@ -1,6 +1,6 @@
 # Hi, I'm Eugen 👋
 
-**Procurement Leader → AI Engineering** | Berlin 🇩🇪
+**AI Solutions Consultant for Procurement** | Berlin 🇩🇪
 
 10+ years leading procurement and category management at **TeamViewer**, **Scout24**, **Foodpanda** and **Delivery Hero** — now engineering the AI systems that will transform the function I know inside out.
 
