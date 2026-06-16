@@ -8,7 +8,7 @@ I don't just advise on AI transformation. I build the tools myself.
 
 Every project here started from a real problem I encountered running procurement teams: manual triage, supplier compliance gaps, fragmented spend data, slow RFP cycles, and market intelligence that arrives too late. These are my answers — designed by someone who has lived them and built by someone who can now ship them.
 
-AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the slides — every project below is live and demoable.
+AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the slides, every project below is live and demoable.
 
 ---
 
