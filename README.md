@@ -10,6 +10,10 @@ Every project here started from a real problem I encountered running procurement
 
 AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the slides, every project below is live and demoable.
 
+<p align="center">
+  <img src="screenshot/procurement-ai-transformation-banner.png" alt="From manual, paper-bound procurement to an AI-automated, autonomous function — the transformation I build" width="100%">
+</p>
+
 ---
 
 ## Procurement AI Transformation
