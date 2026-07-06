@@ -1,6 +1,10 @@
+# Hi, I'm Eugen 👋
 
+### AI Solutions Consultant for Procurement — I turn procurement pain into working AI, and I demo it live. | Berlin 🇩🇪
 
-**AI Solutions Consultant for Procurement** | Berlin 🇩🇪
+> **The one-liner:** 15 years running procurement (portfolios to €60M, €10M+/yr savings) + an AI engineer who ships. I build the tools I wished existed when I ran the function — and every one below is live and clickable.
+
+<!-- ▶ 2-min demo video: paste your Loom/YouTube link here — it's the single highest-impact addition to this profile -->
 
 10+ years leading procurement and category management at **TeamViewer**, **Scout24**, **Foodpanda** and **Delivery Hero** — now engineering the AI systems that will transform the function I know inside out.
 
@@ -44,6 +48,25 @@ AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the sli
 - **Triage Agent** — 5-tier value routing, supplier NDA/DPA/MSA compliance check via RAG, RFQ/RFP generation, multi-supplier outreach, evaluation matrix, award recommendation. 6 importable n8n workflows.
 - **Marketing Spend Stats** — Welch t-tests, Bonferroni + BH-FDR correction, bootstrap CIs, Cohen's d across 7 channels / 14 CPA pairs.
 - **LLM Eval Lab** — LangSmith, custom 20-example dataset, LLM-as-judge correctness + completeness evaluators, A/B (gpt-4o-mini vs gpt-4o).
+
+</details>
+
+<details>
+<summary><b>📋 Case study: Hades — supplier due-diligence, framed as a client engagement</b></summary>
+
+*How I'd scope, build, and hand off this solution for a procurement client — the way I'd run it as a consultant, not just a repo.*
+
+**The problem.** Under Germany's LkSG (and the incoming EU CSDDD), every material supplier must be screened for sanctions, ownership, ESG, and human-rights risk — and re-screened on change. In most teams this is a 1–2 day manual analyst task per supplier: pull the registry, check OFAC/UN lists, scan news, cross-reference ESG databases, write it up. It doesn't scale, it's inconsistent between analysts, and it's the exact task that stalls onboarding.
+
+**The approach.** I treated it as a decision-support problem, not a chatbot. The rule throughout: *the LLM advises, deterministic code decides.* Sanctions matching runs in deterministic code **before** the model sees anything — a hit forces `Block`, no LLM discretion. The model only summarizes and scores what verified sources return, so the output is defensible to an auditor.
+
+**What I built.** An agent that takes a company name and runs 6 research pipelines in parallel — sanctions (OFAC SDN + UN), registry (NorthData), LkSG/CSDDD signals, ESG/labour, 90-day news sentiment, and live market intelligence — then returns a 1–10 risk score with an Approve / Conditional / Block recommendation and a plain-language executive summary, with a persistent audit trail.
+
+**The result.** A 1–2 day analyst task becomes a **sub-2-minute, consistent, audit-trailed report** — the same rubric every time, defensible to compliance, and wired into the wider spend platform so a flagged supplier is caught at onboarding, not after.
+
+**What I'd do for a client.** Scope their actual supplier master and risk appetite → map the screening rubric to *their* LkSG/CSDDD obligations → pilot on one high-risk category → tune the risk weights with their compliance team → integrate to their P2P so screening is a gate, not an afterthought. The tech is done; the engagement is the fit.
+
+**See it:** [Hades repo](https://github.com/eugnmueller-87/hades)
 
 </details>
 
