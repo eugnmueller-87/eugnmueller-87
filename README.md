@@ -1,4 +1,4 @@
-# Hi, I'm Eugen 👋
+
 
 **AI Solutions Consultant for Procurement** | Berlin 🇩🇪
 
