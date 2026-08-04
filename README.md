@@ -81,8 +81,43 @@ AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the sli
 | Project/Description | GitHub |
 |---|---|
 | ⚡ **Pantheon OS — Autonomous Trading Orchestrator** — 8-agent system live on Hetzner, self-scheduling every 15 minutes. **ZEUS** orchestrates: **Icarus** (Hermes signal watcher) → **Hades** (OFAC/EU sanctions firewall) → **Artemis** (VIX + macro regime) → **Pythia** (Kelly-inspired position sizing) → **Zeus** (Claude Sonnet 4.6 reasoning + ChromaDB KB) → **Ares** (IBKR bracket orders: entry + 3% SL + 6% TP) → **Argus** (drawdown kill switch). **Apollo** runs daily: arXiv ingestion, earnings enrichment, self-improvement loop. Agent seniority system: TRAINEE → DIRECTOR, gated by verified win rate. Kafka event bus. Supabase + Grafana. | [GitHub](https://github.com/eugnmueller-87/Pantheon) |
-| 🤖 **Icarus AI — Personal Operating System** — JARVIS-style AI OS via Telegram + an installable PWA. Async Claude tool-use agent loop over a modular skill layer: Gmail/Calendar (IMAP/CalDAV), voice input (Whisper), multimodal document analysis, live web search, LinkedIn drafting, expense tracking — plus on-demand procurement skills wiring in **Hades** (supplier due-diligence) and **Hermes** (market intelligence). Now also reaches my personal knowledge brain over **MCP** via a read-only `brain_search` skill — env-gated to run only on the local host next to the vault, so the cloud deployment has no vault access (local-first by construction). Multi-model routing (Sonnet/Haiku), per-session identity, prompt-injection hardening, persistent memory via Upstash Redis. | [GitHub](https://github.com/eugnmueller-87/Personal-Assistent) |
+| 🤖 **Icarus AI — Personal Operating System** — JARVIS-style AI OS via Telegram + an installable PWA. Async Claude tool-use agent loop over a modular skill layer: Gmail/Calendar (IMAP/CalDAV), voice input (Whisper), multimodal document analysis, live web search, LinkedIn drafting, expense tracking — plus on-demand procurement skills wiring in **Hades** (supplier due-diligence) and **Hermes** (market intelligence). Now also reaches my personal knowledge brain over **MCP** via a read-only `brain_search` skill — env-gated to run only on the local host next to the vault, so the cloud deployment has no vault access (local-first by construction). Multi-model routing (Sonnet/Haiku), per-session identity, prompt-injection hardening, persistent memory via Upstash Redis. **Also self-hosted:** a second instance runs 24/7 on my own hardware with local embeddings and a private mesh network — see the case study below. | [GitHub](https://github.com/eugnmueller-87/Personal-Assistent) |
 | 🧠 **Self-Improving Knowledge System** — A Claude-native knowledge OS built on a quality-gated ingest→distill→maintain loop. Stateful sync skills pull data into an immutable raw layer; a "distill-gate" blocks anything from entering the connected note graph until it's synthesized and linked (≥2 edges) — quality enforced at both ends. Capability layers: a portable harness that swaps the model behind Claude Code (cloud or **local LLM via LM Studio**, proven air-gapped) for private/offline work; a gated **overnight local-LLM batch worker** that drafts into quarantine and earns autonomy only after a 7-run quality streak (cloud model scores each run 1–10); **local hybrid retrieval** (vector + BM25 + RRF fusion + reranker) exposed to the agent over **MCP**, with a custom graph-fusion re-ranker that folds the wiki-link graph into search scoring; a two-tier passive-memory pipeline; a self-maintenance pass that audits the graph for orphans, broken links, and drift; and **agent-feed sync skills** that let the brain ingest its own procurement agents on demand — pulling Hermes' supplier intelligence and Hades' due-diligence verdicts into a fact-gated wiki library, with structural prompt-injection defense (no web-fetch tool in the ingest session). 100% local embeddings, zero per-query cost. Python · PowerShell · MCP · LM Studio · sqlite-vec/FTS5 · git-versioned. | [Private repo](https://github.com/eugnmueller-87/my-ai-brain) |
+
+<details>
+<summary><b>🏠 Case study: ICARUS self-hosted — a private, always-on AI assistant on hardware I own</b></summary>
+
+*The full build: local inference host, private mesh networking, and the service layer that keeps it up unattended. Written the way I'd hand it to a client who says "we can't put that data in someone else's cloud."*
+
+**The problem.** A personal AI assistant is only useful if it knows your actual context — notes, decisions, calendar, client thinking. That is exactly the data you cannot paste into a hosted chatbot. So you pick one: an assistant that's useful and your data leaves the building, or one that's private and blind. For regulated procurement work that's not a real choice.
+
+**The approach.** Split on the trust boundary, not on convenience. **Two instances, one codebase.** The cloud instance is blind *by construction*: the vault tool isn't gated at runtime, it's **never registered** unless `ICARUS_BRAIN_MCP=1`, which the cloud deployment never sets — so there is no code path from the cloud to the vault, not merely a disabled one. The second instance runs on hardware I own, sits next to the vault, and reaches my phone over a private mesh network. Nothing is published to the internet.
+
+**The hardware — deliberately unglamorous.** A **2018 Intel MacBook Pro** (i7-8559U, 8 threads, 16GB RAM, **no GPU**), clamshell, on AC, never sleeping (`pmset -c standby 0 disablesleep 1`). The lesson I'd give a client: private AI infrastructure doesn't need a GPU rig — it needs an honest split of *what runs where*. I benchmarked a 7B model on this box at **~5 tok/s** and drew the line there: **embeddings and retrieval run locally; heavy generation does not.** Right-sizing beats wishful hardware.
+
+**The stack that actually runs.**
+- **Ollama** on `127.0.0.1:11434` serving **`nomic-embed-text`** — 100% local embeddings, zero per-query cost, loopback-bound so it's unreachable off-box. *(I tried LM Studio first; it failed on this Intel generation. Ollama was the robust call — documented, not glossed over.)*
+- **Hybrid retrieval** over the vault — vector + BM25 + **RRF fusion**, **783 notes** indexed locally.
+- **FastAPI + uvicorn** serving an installable **PWA** (web manifest + service worker) on `:8080`.
+- **Python 3.12** in a venv — the system 3.9 was too old.
+- **Tailscale** (WireGuard mesh) — my phone reaches the Mac at a stable private address from anywhere. No port forwarding, no inbound firewall rule, nothing public.
+
+**The networking decision worth reading.** The obvious path was a Cloudflare Tunnel on my own domain. I costed it and **rejected it**: an external CNAME to `cfargotunnel.com` requires Cloudflare's **Business plan (~$200/mo)**, and the only free route is migrating the domain's nameservers — which would drag a live production site and business email (MX/SPF/DKIM) along for the sake of a personal tool. Tailscale delivered the same outcome with **zero DNS changes, nothing publicly exposed, and only my own devices on the network.** Choosing the boring option that doesn't put production at risk *is* the engineering.
+
+**Reliability — three `launchd` services, each solving a different failure.**
+- **`de.icarus.pwa`** — `RunAtLoad` + `KeepAlive`. A wrapper forces `PATH`, loads the environment, and **waits up to 60s for Ollama** before `exec`-ing uvicorn so launchd owns the PID and boot ordering can't race. *Verified by killing the process: back up in ~14 seconds.*
+- **`de.brain.sync`** — nightly at 04:00: `git pull --ff-only` → reindex. **Fails safe** — if the pull fails it *skips* the reindex rather than indexing a half-updated state. A stale index beats a corrupt one.
+- **`de.icarus.health`** — every 15 min, polls `/health` and pushes to my phone **only on state change**. Two deliberate design calls: (1) a watchdog that reports "all good" every 15 minutes gets muted within a week, and **a muted alert channel is strictly worse than none — it creates the belief you'd be told**; (2) the fingerprint is *status + failing-dependency list*, so a **new** dependency breaking while already degraded still fires. It also catches the failure `KeepAlive` structurally cannot: a **wedged** process never crashes, so it's never restarted — it just holds the port and answers nothing.
+
+**Verified, not assumed.** A full unattended reboot test: Ollama, the launchd agents, uvicorn, and the mesh all came back with nobody touching the machine, and the PWA answered from another device. The bug that cost the most: login returned `200` and every subsequent request `401` — the session cookie was hardcoded `secure=True`, which browsers silently drop over plain HTTP. Now environment-controlled, so local HTTP testing and Secure-cookie production are the same code.
+
+**The result.** An assistant that reads my live private knowledge base, runs 24/7 on a seven-year-old laptop, costs **€0/month** in inference and hosting, is reachable from my phone anywhere in the world, self-restarts, self-refreshes its index nightly, and tells me when it's genuinely unwell. No vendor holds the data.
+
+**What I'd do for a client.** Map their actual trust boundary first — which data legally *cannot* leave, which comfortably can. Put the local-only tools behind registration-time gating so "private" is structural, not a config checkbox someone can flip. Size the local hardware to embeddings + retrieval, keep heavy generation wherever their policy allows. Then the unglamorous 80%: supervision, fail-safe ordering, and alerting people won't mute. The demo is a day; the part that survives contact with production is the service layer.
+
+**See it:** [ICARUS repo](https://github.com/eugnmueller-87/Personal-Assistent)
+
+</details>
 
 ---
 
@@ -195,6 +230,31 @@ AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the sli
 ![Interactive Brokers](https://img.shields.io/badge/Interactive%20Brokers-CC0000?style=flat)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)
 ![nginx](https://img.shields.io/badge/nginx-009639?style=flat&logo=nginx&logoColor=white)
+![uvicorn](https://img.shields.io/badge/uvicorn-499848?style=flat)
+![Ollama](https://img.shields.io/badge/Ollama%20%28local%20LLM%29-000000?style=flat&logo=ollama&logoColor=white)
+![Local Embeddings](https://img.shields.io/badge/Local%20Embeddings%20%28nomic--embed--text%29-4A25E1?style=flat)
+![Hybrid Retrieval](https://img.shields.io/badge/Hybrid%20Retrieval%20%28BM25%20%2B%20Vector%20%2B%20RRF%29-FF6B35?style=flat)
+![sqlite-vec](https://img.shields.io/badge/sqlite--vec%20%2F%20FTS5-003B57?style=flat&logo=sqlite&logoColor=white)
+![Claude Opus](https://img.shields.io/badge/Claude%20Opus-CC785C?style=flat)
+![Claude Code](https://img.shields.io/badge/Claude%20Code-CC785C?style=flat)
+![PWA](https://img.shields.io/badge/PWA%20%26%20Service%20Workers-5A0FC8?style=flat&logo=pwa&logoColor=white)
+![IMAP / CalDAV](https://img.shields.io/badge/IMAP%20%2F%20CalDAV-1F6FEB?style=flat)
+![Obsidian](https://img.shields.io/badge/Obsidian-7C3AED?style=flat&logo=obsidian&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnubash&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+
+**Infrastructure & Self-Hosting**
+
+![Self-Hosted AI](https://img.shields.io/badge/Self--Hosted%20AI%20Infrastructure-0F766E?style=flat)
+![Tailscale](https://img.shields.io/badge/Tailscale-242424?style=flat&logo=tailscale&logoColor=white)
+![WireGuard](https://img.shields.io/badge/WireGuard%20Mesh%20VPN-88171A?style=flat&logo=wireguard&logoColor=white)
+![launchd](https://img.shields.io/badge/macOS%20%2F%20launchd-000000?style=flat&logo=apple&logoColor=white)
+![systemd](https://img.shields.io/badge/Linux%20%2F%20systemd-FCC624?style=flat&logo=linux&logoColor=black)
+![SSH](https://img.shields.io/badge/SSH%20%2F%20Remote%20Ops-0F766E?style=flat)
+![Scheduled Jobs](https://img.shields.io/badge/Cron%20%2F%20Scheduled%20Jobs-0F766E?style=flat)
+![Health Monitoring](https://img.shields.io/badge/Health%20Checks%20%26%20Watchdogs-F46800?style=flat)
+![ntfy](https://img.shields.io/badge/ntfy%20%28push%20alerting%29-317F6F?style=flat)
+![VPS Deployment](https://img.shields.io/badge/VPS%20Deployment-D50C2D?style=flat)
 
 **Data & BI**
 
@@ -220,6 +280,10 @@ AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the sli
 ![Tesseract OCR](https://img.shields.io/badge/Tesseract%20OCR-5C6BC0?style=flat)
 ![Prompt-Injection Defense](https://img.shields.io/badge/Prompt--Injection%20Defense-B71C1C?style=flat)
 ![Row-Level Security](https://img.shields.io/badge/Postgres%20RLS-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Local-First Architecture](https://img.shields.io/badge/Local--First%20Architecture-2E7D32?style=flat)
+![Zero-Trust Networking](https://img.shields.io/badge/Zero--Trust%20Networking-B71C1C?style=flat)
+![Data Residency](https://img.shields.io/badge/Data%20Residency%20%26%20Trust%20Boundaries-2E7D32?style=flat)
+![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act%20%28deployer%20compliance%29-003399?style=flat)
 
 ---
 
