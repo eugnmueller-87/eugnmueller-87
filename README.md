@@ -2,7 +2,7 @@
 
 ### AI Solutions Consultant for Procurement: I turn procurement pain into working AI, and I demo it live. | Berlin 🇩🇪
 
-> **The one-liner:** 15 years running procurement (portfolios to €60M, €10M+/yr savings) + an AI engineer who ships. I build the tools I wished existed when I ran the function, and every one below is live and clickable.
+> **The one-liner:** I build the tools I wished existed when I ran the function, and every one below is live and clickable.
 
 <!-- ▶ 2-min demo video: paste your Loom/YouTube link here. It's the single highest-impact addition to this profile -->
 
