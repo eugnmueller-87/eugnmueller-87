@@ -126,6 +126,16 @@ The fix is not discipline, it is instrumentation. `/health` now returns the runn
 
 ---
 
+## Open Source & Developer Tooling
+
+*Tools I built for my own projects and open-sourced because the problem is everyone's.*
+
+| Project/Description | GitHub |
+|---|---|
+| 🩹 **claude-blueprint:** Seed a Claude Code project with guard rails that actually hold. Eight hooks that block secrets and dangerous commands **at the tool-call boundary**, before the model's intent matters, plus ten focused reviewers and twenty skills. The thesis: *security is deterministic, everything else is advisory*, so anything you cannot afford to lose goes behind a hook and everything else has to be specific enough to be followed. Which is why the nine `CLAUDE.md` rules each carry a **dated incident** and what it cost, instead of reading like a mood board. Ships as a one-command seed or a plugin. Includes `incident-rule`, a skill that turns your next lost afternoon into a permanent rule in your own words, and refuses to write one when nothing was actually at stake. MIT. | [GitHub](https://github.com/eugnmueller-87/claude-blueprint) |
+
+---
+
 ## Infrastructure & Security
 
 *Self-hosted reliability and security tooling that keeps the production stack healthy, observe-only guardians, firewall hardening, and automated secret hygiene.*
