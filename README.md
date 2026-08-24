@@ -85,6 +85,31 @@ AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the sli
 | 🧠 **Self-Improving Knowledge System:** A Claude-native knowledge OS built on a quality-gated ingest→distill→maintain loop. Stateful sync skills pull data into an immutable raw layer; a "distill-gate" blocks anything from entering the connected note graph until it's synthesized and linked (≥2 edges), quality enforced at both ends. Capability layers: a portable harness that swaps the model behind Claude Code (cloud or **local LLM via LM Studio**, proven air-gapped) for private/offline work; a gated **overnight local-LLM batch worker** that drafts into quarantine and earns autonomy only after a 7-run quality streak (cloud model scores each run 1–10); **local hybrid retrieval** (vector + BM25 + RRF fusion + reranker) exposed to the agent over **MCP**, with a custom graph-fusion re-ranker that folds the wiki-link graph into search scoring; a two-tier passive-memory pipeline; a self-maintenance pass that audits the graph for orphans, broken links, and drift; and **agent-feed sync skills** that let the brain ingest its own procurement agents on demand, pulling Hermes' supplier intelligence and Hades' due-diligence verdicts into a fact-gated wiki library, with structural prompt-injection defense (no web-fetch tool in the ingest session). 100% local embeddings, zero per-query cost. Python · PowerShell · MCP · LM Studio · sqlite-vec/FTS5 · git-versioned. | [Private repo](https://github.com/eugnmueller-87/my-ai-brain) |
 
 <details>
+<summary><b>🧠 How the knowledge system is wired (diagrams)</b></summary>
+
+*Two architecture diagrams from the system's own documentation. German, because that is the language I think and take notes in.*
+
+**Ingest, and the one gate that separates fuel from map.**
+
+![Ingest pipeline and the distill-gate](assets/brain-ingest-distill-gate.jpeg)
+
+Sources on the left flow through stateful sync skills into an immutable raw layer, which is never reorganized and never hand-edited. Everything left of the dashed line may grow without limit, because it costs nothing. Nothing crosses to the right until it has been rewritten as synthesis in my own voice **and** linked to at least two existing notes. `wiki/` sits deliberately on the raw side: it indexes the raw layer, it does not interpret it.
+
+The point of a single gate is that ingest volume stops being a quality risk. Without it, "ingest more" and "understand more" look identical from the outside, right up until the graph is a landfill.
+
+**Two memory stores, and the one that was actually alive.**
+
+![Two memory stores, one of them leading](assets/brain-memory-stores.jpeg)
+
+There were two. The documented one held 13 entries and had not been touched in eight weeks. The undocumented one was written on every session. The documented store was not worse-built, it was **unpowered**: it waited for a human to type "capture memory", and for eight weeks nobody did.
+
+So the store with an engine became the leading one, and a nightly one-way mirror copies it into git and cloud backup. **One way, on purpose.** A technical failure announces itself, because something is missing. A resurrected memory does not announce itself at all, and a memory store that quietly restores things you deleted is worse than one that loses them. Deleted stays deleted; the history lives in git.
+
+The transferable lesson is not about memory. **A component with no engine attached is a component that has already stopped**, and nothing will tell you, because "nothing happened" is indistinguishable from "nothing needed to happen." Every subsystem needs a liveness check that treats silence as death until proven otherwise.
+
+</details>
+
+<details>
 <summary><b>🏠 Case study: private AI on hardware I own, and moving the line between what runs local and what does not</b></summary>
 
 *The full build: the trust boundary, the local inference hosts, two overnight shifts on two machines, and the supervision layer that makes unattended work trustworthy. Written the way I'd hand it to a client who says "we can't put that data in someone else's cloud."*
