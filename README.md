@@ -1,6 +1,6 @@
 # Hi, I'm Eugen 👋
 
-### AI Solutions Consultant for Procurement: I turn procurement pain into working AI, and I demo it live. | Berlin 🇩🇪
+### AI Solutions Consultant for Procurement: I turn procurement pain into working AI, and I demo it live. | Berlin
 
 > **The one-liner:** I build the tools I wished existed when I ran the function, and every one below is live and clickable.
 
