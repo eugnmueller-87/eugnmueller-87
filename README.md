@@ -105,6 +105,7 @@ AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the sli
 | 🤖 **[ICARUS](https://github.com/eugnmueller-87/Personal-Assistent)**<br>*personal assistant* | A general assistant knows nothing about my actual week. The one that would know it wants my private notes in someone else's cloud. | Talk or type from the phone: it reads mail and calendar, drafts, searches the web, reads documents, logs spend, and answers out of my private notes, whose search index never leaves hardware I own. | **Live** with 29 tools, a count the app reports about itself rather than one kept by hand here. | Claude Sonnet 5 / Haiku 4.5 · FastAPI · PWA · MCP |
 | 🧠 **[Self-Improving Knowledge System](https://github.com/eugnmueller-87/my-ai-brain)**<br>*my own second brain* · private | Notes pile up faster than they get understood. The archive grows, the thinking does not. | Pulls sources in on its own, then refuses to file any of it until it has been rewritten in my own words and linked to two notes that already exist. A local model drafts overnight into quarantine and earns more freedom only after seven good runs in a row. | **Runs nightly** on hardware I own. Search costs nothing per query, because the embeddings are local. | Python · MCP · local models · SQLite |
 | 🗂️ **[ONE TEAM, ONE DREAM](https://github.com/eugnmueller-87/one-team-one-dream)**<br>*shared brain, six-person team* · private | Six people, six separate streams of information. The process stops at every handover while somebody digs the context back out of their own inbox, and when one of them leaves, the team loses that stream for good. | **Combines the information streams of the whole team into one place, so the process runs end to end instead of stopping at each desk.** The same idea as above, ported from one person to six, where everyone is a user and nobody touches a repo. **Each person** keeps their own raw notes and sees their own numbers first. **The lead** sees what needs support, not a ranking. **Leadership** sees progress and where the projects stand. Nothing is ever deleted or overwritten, only added to. | **MVP runs and is measured:** 89 self-test checks plus 58 unit tests green, all 36 role/view pairs served. **Not deployed:** a works agreement and a recording-consent decision come first. | Python · FastAPI · Markdown + git · MCP |
+| 📌 **Aushang**<br>*paper notice board → private feed* · private | Kitas, clubs and parishes still inform by paper pinned to a wall. Whoever walks past knows; everyone else misses the closure day. Every digital fix so far asks them to change how they work. | One admin photographs the board. Text is read and personal data masked **locally**, the model sees only redacted text and proposes type and dates, and **nothing reaches members until a human confirms**. Members get a private feed, a calendar, documents and push, in German, English or Russian. | **Live since June 2026 at a Kita.** Web and PWA in use; Android and iOS built from the same codebase and **held behind a go-live gate** (isolation test, device performance, provider) before any store release. | Next.js 16 · Supabase EU · Python · Presidio · Claude Haiku 4.5 · Capacitor |
 
 <details>
 <summary><b>🔧 Engineering depth (click to expand, for technical reviewers)</b></summary>
@@ -207,6 +208,48 @@ The fix is not discipline, it is instrumentation. `/health` now returns the runn
 
 </details>
 
+<details>
+<summary><b>📋 Case study: Aushang, digitising the paper notice board without changing anyone's process</b></summary>
+
+*Why I built it, what it does today, and how one codebase reaches the web, Android and iOS while no personal data reaches the model.*
+
+**The problem.** Kitas, clubs, parishes and allotment associations still run on paper pinned to a wall. Whoever walks past the board is informed; everyone else misses the closure day, the menu change or the deadline. The usual fixes ask these organisations to change how they work. Aushang does not.
+
+**The approach.** Change nothing about the process. The organisation keeps pinning paper; one admin photographs the board from inside the app, and the system does the rest. Two rules carry the design. *Privacy by construction:* the photo is read and personal data is masked locally (Tesseract, Microsoft Presidio, spaCy), so the language model only ever sees redacted text. *The LLM advises, deterministic code decides:* the model proposes type, structure and dates against a strict schema, and nothing reaches members until an admin confirms it. Every organisation is its own tenant: every domain row carries its organisation, and row-level security keeps one organisation's data out of another's view.
+
+**What I built.**
+- A web app and installable PWA (Next.js 16, React 19, Supabase in the EU) with a private feed, category libraries, a shared calendar with ICS subscription, an email digest and push.
+- A Python worker for OCR, redaction and extraction (Claude Haiku 4.5, redacted text only) that also translates each published notice into English and Russian.
+- Admin and operator tools: review with a preview of the AI result, take-down and re-publish, a document store, a feedback inbox, broadcasts to all organisations.
+- Native apps from the same codebase (Capacitor): Android with native camera and a cloud build; iOS set up to build on GitHub's macOS runners, so no Mac is needed. Native push (FCM, APNs) and deep links are built and stay switched off until device tests pass.
+- Hardened to a four-layer security model (deny-by-default middleware, server role checks, SECURITY DEFINER RPCs, Postgres RLS with column-level REVOKE on personal data) and put through multi-agent adversarial security reviews; a one-command self-host wizard lets anyone run their own copy.
+
+**The result.** In real use at a Kita since June 2026. 174 commits on `main` by October 2026, checked by CI on every pull request and every push to `main` (type check, lint, tests, build, two secret scans). AI cost scales with published notices, not with readers: one extraction plus one translation per extra language for each notice, while reading costs nothing. The store launch is deliberately gated: a tenant-isolation test across every table, a dry run on old and budget phones against Core Web Vitals budgets, provider and business model settled, and a way back for web, database and stores. Nothing ships before every row is green.
+
+**What's next.** About ten organisation types (Kita, school, sports club, allotment association, parish and more) as starting templates for terms, categories and start page, which each organisation then adapts itself. One interface and one configuration per type, so a new vertical is a configuration, not a fork.
+
+```mermaid
+gantt
+    title Aushang, October 2026
+    dateFormat YYYY-MM-DD
+    axisFormat %b %Y
+    section Built and live
+    MVP · capture pipeline · review gate · calendar · PWA   :done, 2026-06-12, 2026-06-20
+    Android shell · native camera · de en ru                :done, 2026-06-15, 2026-06-30
+    Pipeline durability · retries · job recovery            :done, 2026-07-01, 2026-07-31
+    Documents · feedback inbox · AI preview                 :done, 2026-09-01, 2026-09-30
+    Organisation model · operator anchor flag               :done, 2026-09-12, 2026-10-20
+    section Store readiness
+    iOS project · cloud builds · push · deep links          :done, 2026-10-20, 1d
+    section Go-live gate, targets
+    Isolation · dry run · device performance                :active, 2026-10-21, 2026-11-30
+    Store launch, Android first                             :milestone, 2026-12-15, 0d
+```
+
+**See it:** private repo, code walkthrough on request.
+
+</details>
+
 ---
 
 ## Open Source & Developer Tooling
@@ -245,49 +288,7 @@ The fix is not discipline, it is instrumentation. `/health` now returns the runn
 | Project/Description | GitHub |
 |---|---|
 | 🏥 **Kita Connect:** Full-stack daycare management platform for German Kitas. ~€0/month, GDPR-compliant, Frankfurt-hosted. Three portals: parents, educators (AI-assisted learning stories via Claude Haiku), management (multi-channel comms, automated registrations). | [GitHub](https://github.com/eugnmueller-87/kita-connect) |
-| 📌 **Aushang:** Digitization for old-school German orgs (Kitas, Vereine, Kirchengemeinden, Kleingärten) that **changes none of their processes**: they keep pinning paper to a physical board; one admin photographs it from inside the tool, and members get a private feed, a shared calendar, an ICS subscription, and an email digest. **Privacy by construction**, the raw photo is OCR'd and PII-redacted **locally** (Tesseract + Microsoft Presidio + spaCy, fail-closed) before only the **redacted text** reaches the LLM (Claude, US: never raw images or PII; swappable to an EU model); raw photos and the LLM key never leave the FastAPI worker. **"The LLM advises, deterministic code decides"**: nothing reaches members without explicit admin confirmation, and all model output is schema-validated. Hardened to a four-layer security model (deny-by-default middleware → server role checks → SECURITY DEFINER RPCs → Postgres RLS + column-level REVOKE on PII), put through multi-agent **adversarial security reviews**. Next.js 16 + React 19 + Supabase (EU, RLS on every table), a Dockerized Python ML worker, native **Android** and **iOS** apps from one codebase (Capacitor, store launch behind a go-live gate), and a one-command **self-host wizard**. In real use at a Kita since June 2026; case study below. | Private repo<br>walkthrough on request |
 | ⚡ **Light-weight Transcriber:** Drop a YouTube URL or paste any text. Ask Claude anything about it. Answers without downloading the audio, paste a URL or text and ask. | [GitHub](https://github.com/eugnmueller-87/Light-weight-Transcriber) |
-
-<details>
-<summary><b>📋 Case study: Aushang, digitising the paper notice board without changing anyone's process</b></summary>
-
-*Why I built it, what it does today, and how one codebase reaches the web, Android and iOS while no personal data reaches the model.*
-
-**The problem.** Kitas, clubs, parishes and allotment associations still run on paper pinned to a wall. Whoever walks past the board is informed; everyone else misses the closure day, the menu change or the deadline. The usual fixes ask these organisations to change how they work. Aushang does not.
-
-**The approach.** Change nothing about the process. The organisation keeps pinning paper; one admin photographs the board from inside the app, and the system does the rest. Two rules carry the design. *Privacy by construction:* the photo is read and personal data is masked locally (Tesseract, Microsoft Presidio, spaCy), so the language model only ever sees redacted text. *The LLM advises, deterministic code decides:* the model proposes type, structure and dates against a strict schema, and nothing reaches members until an admin confirms it. Every organisation is its own tenant: every domain row carries its organisation, and row-level security keeps one organisation's data out of another's view.
-
-**What I built.**
-- A web app and installable PWA (Next.js 16, React 19, Supabase in the EU) with a private feed, category libraries, a shared calendar with ICS subscription, an email digest and push.
-- A Python worker for OCR, redaction and extraction (Claude Haiku 4.5, redacted text only) that also translates each published notice into English and Russian.
-- Admin and operator tools: review with a preview of the AI result, take-down and re-publish, a document store, a feedback inbox, broadcasts to all organisations.
-- Native apps from the same codebase (Capacitor): Android with native camera and a cloud build; iOS set up to build on GitHub's macOS runners, so no Mac is needed. Native push (FCM, APNs) and deep links are built and stay switched off until device tests pass.
-
-**The result.** In real use at a Kita since June 2026. 174 commits on `main` by October 2026, checked by CI on every pull request and every push to `main` (type check, lint, tests, build, two secret scans). AI cost scales with published notices, not with readers: one extraction plus one translation per extra language for each notice, while reading costs nothing. The store launch is deliberately gated: a tenant-isolation test across every table, a dry run on old and budget phones against Core Web Vitals budgets, provider and business model settled, and a way back for web, database and stores. Nothing ships before every row is green.
-
-**What's next.** About ten organisation types (Kita, school, sports club, allotment association, parish and more) as starting templates for terms, categories and start page, which each organisation then adapts itself. One interface and one configuration per type, so a new vertical is a configuration, not a fork.
-
-```mermaid
-gantt
-    title Aushang, October 2026
-    dateFormat YYYY-MM-DD
-    axisFormat %b %Y
-    section Built and live
-    MVP · capture pipeline · review gate · calendar · PWA   :done, 2026-06-12, 2026-06-20
-    Android shell · native camera · de en ru                :done, 2026-06-15, 2026-06-30
-    Pipeline durability · retries · job recovery            :done, 2026-07-01, 2026-07-31
-    Documents · feedback inbox · AI preview                 :done, 2026-09-01, 2026-09-30
-    Organisation model · operator anchor flag               :done, 2026-09-12, 2026-10-20
-    section Store readiness
-    iOS project · cloud builds · push · deep links          :done, 2026-10-20, 1d
-    section Go-live gate, targets
-    Isolation · dry run · device performance                :active, 2026-10-21, 2026-11-30
-    Store launch, Android first                             :milestone, 2026-12-15, 0d
-```
-
-**See it:** private repo, code walkthrough on request.
-
-</details>
 
 ---
 
