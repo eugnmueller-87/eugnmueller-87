@@ -224,6 +224,36 @@ The fix is not discipline, it is instrumentation. `/health` now returns the runn
 - Native apps from the same codebase (Capacitor): Android with native camera and a cloud build; iOS set up to build on GitHub's macOS runners, so no Mac is needed. Native push (FCM, APNs) and deep links are built and stay switched off until device tests pass.
 - Hardened to a four-layer security model (deny-by-default middleware, server role checks, SECURITY DEFINER RPCs, Postgres RLS with column-level REVOKE on personal data) and put through multi-agent adversarial security reviews; a one-command self-host wizard lets anyone run their own copy.
 
+**How it fits together.**
+
+```mermaid
+flowchart LR
+    A["Admin<br/>photographs the<br/>paper notice"] --> APP
+    subgraph EU["Hosted in the EU"]
+        APP["App<br/>web, Android, iOS<br/>from one codebase"]
+        WK["Private worker<br/>text recognition +<br/>local masking of<br/>personal data"]
+        RV["Admin review<br/>nothing publishes<br/>without it"]
+        DB[("Database<br/>each row belongs to<br/>one organisation")]
+    end
+    subgraph US["Outside the EU"]
+        LLM["Language model<br/>sees masked<br/>text only"]
+    end
+    APP --> WK
+    WK -- "masked text" --> LLM
+    LLM -- "draft, checked<br/>against a schema" --> RV
+    RV -- "confirmed" --> DB
+    DB --> M["Members<br/>feed · libraries<br/>calendar · email · push"]
+```
+
+**What it can do today.**
+- **Capture:** a photo or an upload from camera or gallery; the same photo twice is blocked.
+- **Understanding:** text recognition, personal data masked locally, and the model proposes type and dates (events, closures, deadlines, menus, weekly reviews, information, health notices). The admin confirms.
+- **For members:** a private feed, category libraries that count what is new since the last visit, a shared calendar with a calendar subscription, an email digest and push, in German, English or Russian.
+- **Documents:** admins upload PDF and Word files into folders, members download them.
+- **Organisations:** each one separate and invite-only, with admin and member roles; an operator console that can broadcast to every organisation, and a feedback inbox.
+- **Privacy:** account deletion inside the app; the original photo of a weekly review is deleted when it is published.
+- **Platforms:** web and PWA live; Android and iOS from the same codebase, held behind the go-live gate; a one-command setup to run your own copy.
+
 **The result.** In real use at a Kita since June 2026. 174 commits on `main` by October 2026, checked by CI on every pull request and every push to `main` (type check, lint, tests, build, two secret scans). AI cost scales with published notices, not with readers: one extraction plus one translation per extra language for each notice, while reading costs nothing. The store launch is deliberately gated: a tenant-isolation test across every table, a dry run on old and budget phones against Core Web Vitals budgets, provider and business model settled, and a way back for web, database and stores. Nothing ships before every row is green.
 
 **What's next.** About ten organisation types (Kita, school, sports club, allotment association, parish and more) as starting templates for terms, categories and start page, which each organisation then adapts itself. One interface and one configuration per type, so a new vertical is a configuration, not a fork.
