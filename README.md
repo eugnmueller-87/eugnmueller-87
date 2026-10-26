@@ -28,7 +28,7 @@ More builds, technical notes, demos, and case studies below.
 ## Procurement AI Transformation
 
 <p align="center">
-  <img src="screenshot/procurement-ai-transformation-banner.png" alt="From manual, paper-bound procurement to an AI-automated, autonomous function, the transformation I build" width="100%">
+  <img src="screenshot/procurement-ai-transformation-v2.jpg" alt="Abstract data flowing from fragmented business processes into structured AI-assisted workflows" width="100%">
 </p>
 
 *Every build below started from a real pain I lived running procurement teams. The table is the short version: what it solves, what it does, what came out, and what it runs on. Engineering depth folds open underneath.*
