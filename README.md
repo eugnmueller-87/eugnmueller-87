@@ -1,26 +1,35 @@
 # Hi, I'm Eugen 👋
 
-### AI Solutions Consultant for Procurement: I turn procurement pain into working AI, and I demo it live. | Berlin
+### I build practical AI software that solves real problems.
 
-> **The one-liner:** I build the tools I wished existed when I ran the function, and every one below is live and clickable.
+AI agents, automation, assistants, and full-stack applications. I work from a simple question: **what would make this process genuinely better?** Then I build a version people can try.
 
-<!-- ▶ 2-min demo video: paste your Loom/YouTube link here. It's the single highest-impact addition to this profile -->
+I've spent years in procurement and business operations, including roles at **TeamViewer**, **Scout24**, **Foodpanda**, and **Delivery Hero**. That experience gives me plenty of problems worth solving, but my projects go beyond procurement.
 
-In procurement since 2010, most recently at **TeamViewer**, **Scout24**, **Foodpanda** and **Delivery Hero**, now engineering the AI systems that will transform the function I know inside out.
+**What you'll find here:** working prototypes, deployed tools, engineering decisions, safeguards, tests, and the occasional experiment that didn't work. I care about what a system does in practice, not just what the demo promises.
 
-I don't just advise on AI transformation. I build the tools myself.
+### 📓 Follow the build
 
-Every project here started from a real problem I encountered running procurement teams: manual triage, supplier compliance gaps, fragmented spend data, slow RFP cycles, and market intelligence that arrives too late. These are my answers, designed by someone who has lived them and built by someone who can now ship them.
+At **[The AI Build Journal](https://substack.com/@theaibuildjournal)**, I share what I'm building, why I made certain decisions, what broke, and what improved. Expect real projects and honest lessons from building with AI.
 
-AI Integration Bootcamp @ Ironhack · MBA-IT. I ship the tools, not just the slides. Every project below is live and demoable.
+### 🚀 Start with a project
 
-<p align="center">
-  <img src="screenshot/procurement-ai-transformation-banner.png" alt="From manual, paper-bound procurement to an AI-automated, autonomous function, the transformation I build" width="100%">
-</p>
+| Project | Why it exists |
+|---|---|
+| **[ICARUS](https://github.com/eugnmueller-87/Personal-Assistent)** | A context-aware personal AI assistant with tools, private retrieval, and clear trust boundaries. |
+| **[SCM-Master](https://github.com/eugnmueller-87/SCM-Master)** | A supply chain platform that connects purchasing, inventory, and asset lifecycle decisions. |
+| **[Negotiation Agent](https://github.com/eugnmueller-87/Negotiation-Agent)** | An AI-assisted negotiation tool where deterministic code controls the commercial decisions. |
+| **[TrueSpend](https://github.com/eugnmueller-87/TrueSpend)** | A procurement operations system built around guided workflows and controlled automation. |
+
+More builds, technical notes, demos, and case studies below.
 
 ---
 
 ## Procurement AI Transformation
+
+<p align="center">
+  <img src="screenshot/procurement-ai-transformation-banner.png" alt="From manual, paper-bound procurement to an AI-automated, autonomous function, the transformation I build" width="100%">
+</p>
 
 *Every build below started from a real pain I lived running procurement teams. The table is the short version: what it solves, what it does, what came out, and what it runs on. Engineering depth folds open underneath.*
 
@@ -546,8 +555,9 @@ gantt
 
 ## 📫 Connect
 
+[![The AI Build Journal](https://img.shields.io/badge/Substack-The%20AI%20Build%20Journal-FF6719?style=flat&logo=substack&logoColor=white)](https://substack.com/@theaibuildjournal)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Eugen%20Mueller-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eugen-mueller)
 
 ---
 
-*In procurement since 2010, now building the AI systems I wished existed when I ran the function.*
+*Building practical AI tools and sharing what I learn along the way.*
