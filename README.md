@@ -318,7 +318,7 @@ gantt
 | Project/Description | GitHub |
 |---|---|
 | 📊 **Client Dashboard:** Internal agency dashboard for monitoring all live client AI systems. Real-time status, deployment health, pipeline metrics across projects. | [GitHub](https://github.com/eugnmueller-87/CLIENT-DASHBOARD) |
-| 🧙 **Agency Wizard:** Internal onboarding wizard for deploying full AI automation stacks to clients in a single 3-hour session. Validates every credential live, then provisions into the client's own n8n Cloud instance. | [GitHub](https://github.com/eugnmueller-87/Agency-Wizard) |
+| 🧙 **Agency Wizard:** Internal onboarding wizard for deploying full AI automation stacks to clients in a single 3-hour session. Validates every credential live, then provisions into the client's own n8n Cloud instance. | [Private repo](https://github.com/eugnmueller-87/Agency-Wizard) |
 | 🩺 **AI Triage System (Metabelly):** Autonomous customer support triage for a Croatian gut health brand. Incoming emails classified by AI (category, priority, language), auto-replies drafted, Calendly links appended, results routed to Slack. n8n + Mistral AI + Gmail API. GDPR-compliant. | [Private repo](https://github.com/eugnmueller-87/Metabelly) |
 | 📧 **Noosphr Email Router:** AI email triage for Noosphr's inbox. Claude Haiku classifies and routes to `#business`, `#support`, or `#spam` Slack channels with one-click reply buttons. Runs as systemd service on Hetzner VPS. | [GitHub](https://github.com/eugnmueller-87/Noosphr-Workspace) |
 
@@ -328,7 +328,7 @@ gantt
 
 | Project/Description | GitHub |
 |---|---|
-| 🏥 **Kita Connect:** Full-stack daycare management platform for German Kitas. ~€0/month, GDPR-compliant, Frankfurt-hosted. Three portals: parents, educators (AI-assisted learning stories via Claude Haiku), management (multi-channel comms, automated registrations). | [GitHub](https://github.com/eugnmueller-87/kita-connect) |
+| 🏥 **Kita Connect:** Full-stack daycare management platform for German Kitas. ~€0/month, GDPR-compliant, Frankfurt-hosted. Three portals: parents, educators (AI-assisted learning stories via Claude Haiku), management (multi-channel comms, automated registrations). | [Private repo](https://github.com/eugnmueller-87/kita-connect) |
 | ⚡ **Light-weight Transcriber:** Drop a YouTube URL or paste any text. Ask Claude anything about it. Answers without downloading the audio, paste a URL or text and ask. | [GitHub](https://github.com/eugnmueller-87/Light-weight-Transcriber) |
 
 ---
