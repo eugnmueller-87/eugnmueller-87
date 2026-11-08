@@ -387,6 +387,7 @@ gantt
 ![htmx](https://img.shields.io/badge/htmx-3D72D7?style=flat&logo=htmx&logoColor=white)
 ![Jinja2](https://img.shields.io/badge/Jinja2-B41717?style=flat&logo=jinja&logoColor=white)
 ![PySide6](https://img.shields.io/badge/PySide6%20%28Qt%29-41CD52?style=flat&logo=qt&logoColor=black)
+![Electron](https://img.shields.io/badge/Electron-47848F?style=flat&logo=electron&logoColor=white)
 ![Capacitor](https://img.shields.io/badge/Capacitor%20%28Android%29-119EFF?style=flat&logo=capacitor&logoColor=white)
 ![PWA](https://img.shields.io/badge/PWA%20%26%20Service%20Workers-5A0FC8?style=flat&logo=pwa&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=flat&logo=markdown&logoColor=white)
